@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Sodiq Enterprise</title>
+    </head>
+    <body>
+        <div class="container" style="background-color:blanchedalmond; box-shadow:green 4px 3px 3px; width:40%; height:60%; margin-left: 30%; visibility:visible;">
+            <center>
+                <div class="label" style="color:darkslategrey; font-size:medium; background-color:aliceblue;">
+                    <h1>Image Slider</h1>
+                </div>
+                <div class="img" style="padding:13px ; width:fit-content; height:fit-content; ">
+                    <img src="img/store-1.jfif" alt="This is an image carousel" style="width: 500px; height:600px; box-shadow: green 1px 1px 1px " id="image"/>
+                </div>
+                
+
+            </center>
+            <div class="btn" style="margin-left:10%; padding-bottom:30px;">
+                <input type="button" width="80px" name="Previous" id="prev" value="Previous" style="width:150px; height:30px; font-weight:bold; border-radius:8%; border:none; box-shadow: green 1px 1px 1px;" onclick="prevImageSlider()">
+                <input type="button" width="80px" name="Next" id="next" value="Next" style="width:150px; height:30px; font-weight:bold; right:10%; margin-left:35%; border-radius:8%; border:none; box-shadow: green 1px 1px 1px;" onclick="nextImageSlider()">
+            </div>
+            
+
+        </div>
+
+        <script type="text/javascript">
+            prevButton = document.getElementById('prev');
+            nextButton = document.getElementById('next');
+            prevButton.disabled = true;
+            var imagery = ['img/store-1.jfif','img/store-2.jfif','img/store-3.jfif','img/store-4.jfif','img/store-5.jfif','img/store-6.jfif','img/store-7.jfif', 'img/store-8.jfif' ];
+            var counter = 1;
+            var reduxCounter = imagery.length-1;
+            var reduction = -1
+
+            function nextImageSlider(){
+                if((counter<=imagery.length-1) || (counter==1)){
+                    counter++;
+                    
+                    prevButton.disabled = false
+                    var slider = document.getElementById('image');
+                    slider.src = imagery[counter];
+
+                    
+                    if(counter==imagery.length-1){
+                        nextButton.disabled = true;
+
+                    }
+                    
+                    
+                }  
+            }
+            function prevImageSlider(){
+                
+                if(counter>0 || counter<=imagery.length-1){
+                    counter--;
+                    nextButton.disabled = false;
+                    var slider = document.getElementById('image');
+                    slider.src = imagery[counter];
+                    
+
+                    if(counter<=0){
+                        nextButton.disabled=false;
+                        prevButton.disabled =true;
+                    }
+                    
+                }
+                
+                
+                
+            }
+
+            
+            
+        </script>
+
+    </body>
+
+
+
+
+
+
+</html>
